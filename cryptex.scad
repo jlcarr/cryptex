@@ -1,22 +1,35 @@
-module ngon(num, r) {
-  polygon([for (i=[0:num-1], a=i*360/num) [ r*cos(a), r*sin(a) ]]);
+// Cryptex Disc Model
+
+
+// polygonal-based prism defition
+module ngonPrism(n, r, h) {
+    linear_extrude(height = h, center=true) 
+        polygon([
+            for (i=[0:n-1], a=i*360/n) 
+                [ r*cos(a), r*sin(a) ]
+        ]);
 }
 
+
+module cryptexDisc(inner_radius, outer_radius, width, thickness){
+    difference(){
+        difference(){
+            ngonPrism(n, outer_radius, width);
+            cylinder(h=width, r=inner_radius, center=true);
+        };
+        ngonPrism(n, outer_radius-thickness, width-2*thickness);
+    }
+}
+
+
+
+
+// Main Model
 n = 10;
 
-tol = 0.1;
 inner_radius = 7;
 outer_radius = 10;
 width = 5;
 thickness = 1;
 
-
-difference(){
-    difference(){
-        linear_extrude(height = width, center=true) 
-        ngon(n, outer_radius);
-        cylinder(h=width, r=inner_radius, center=true);
-    };
-    linear_extrude(height = width-2*thickness, center=true)
-    ngon(n, outer_radius-thickness);
-}
+cryptexDisc(inner_radius, outer_radius, width, thickness);
