@@ -11,7 +11,7 @@ module ngonPrism(n, r, h) {
 }
 
 
-module cryptexDisc(n, thickness, inner_radius, outer_radius, width){
+module cryptexDisc(n, inner_radius, outer_radius, width, thickness){
     difference(){
        difference(){
             difference(){
@@ -23,6 +23,12 @@ module cryptexDisc(n, thickness, inner_radius, outer_radius, width){
         translate([inner_radius,0,0]) 
             cube([2*(outer_radius-inner_radius-thickness), 4*thickness, width], center=true);
     };
+    for (i=[0:n-1], a=i*360/n) 
+        rotate([0,0,a])
+            translate([outer_radius,0,0])
+                rotate([90,90,90]) 
+                    linear_extrude(height = thickness/2, center=true) 
+                        text(str(i), halign = "center", valign = "center", size=face/2);
 }
 
 
@@ -40,7 +46,3 @@ face = 2*tan(180/n)*outer_radius;
 echo(face);
 
 cryptexDisc(n, inner_radius, outer_radius, width, thickness);
-translate([outer_radius,0,0])
-rotate([90,0,90]) 
-    linear_extrude(height = thickness/2, center=true) 
-        text("1", halign = "center", valign = "center", size=face/2);
