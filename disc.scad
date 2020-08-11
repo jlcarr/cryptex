@@ -10,15 +10,20 @@ module cryptexDisc(n, val, inner_radius, outer_radius, width, thickness){
     difference(){
        difference(){
             difference(){
+                // Main Body
                 ngonPrism(n, outer_radius, width);
+                // Shaft Hole
                 cylinder(h=width, r=inner_radius, center=true);
             };
+            // Teeth Interior Hollow
             ngonPrism(n, outer_radius-thickness, width-2*thickness);
         };
+        // Notch
         rotate([0,0,val*360/n])
             translate([inner_radius,0,0]) 
                 cube([2*(outer_radius-inner_radius-thickness), 4*thickness, width], center=true);
     };
+    // Numbers
     for (i=[0:n-1], a=i*360/n) 
         rotate([0,0,a])
             translate([outer_radius,0,0])
