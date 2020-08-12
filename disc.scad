@@ -6,14 +6,14 @@
 use <sharedgeometry.scad>
 
 
-module cryptexDisc(n, val, inner_radius, outer_radius, width, thickness){
+module cryptexDisc(n, val, inner_radius, outer_radius, width, thickness, clearance){
     difference(){
        difference(){
             difference(){
                 // Main Body
-                ngonPrism(n, outer_radius, width);
+                ngonPrism(n, outer_radius, width-clearance);
                 // Shaft Hole
-                cylinder(h=width, r=inner_radius, center=true);
+                cylinder(h=width, r=inner_radius+clearance, center=true);
             };
             // Teeth Interior Hollow
             ngonPrism(n, outer_radius-thickness, width-2*thickness);
@@ -44,7 +44,9 @@ outer_radius = 10;
 width = 5;
 thickness = 1;
 
+clearance = 0.25;
+
 face = 2*tan(180/n)*outer_radius;
 echo(face);
 
-cryptexDisc(n, val, inner_radius, outer_radius, width, thickness);
+cryptexDisc(n, val, inner_radius, outer_radius, width, thickness, clearance);

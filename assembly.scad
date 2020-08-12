@@ -25,8 +25,8 @@ echo(face);
 mirror([0,0,1])
     cryptexSpindle(n, digits, outer_radius, inner_radius, width, thickness, clearance);
 
-translate([0,0,-(1+digits)*width]) cryptexShaft(n, digits, inner_radius, width, thickness, clearance);
+translate([0,0,-(2+digits)*width]) cryptexShaft(n, digits, inner_radius, width, thickness, clearance);
 
-//for (i=[0:1])//digits-1]) 
-//    translate([0,0,-(i+1)*width]) 
-//        cryptexDisc(n, 0, inner_radius, outer_radius, width, thickness);
+for (i=[0:1])//digits-1]) 
+    translate([0,0,-(i+1)*width]) 
+        cryptexDisc(n, 0, inner_radius, outer_radius, width, thickness,clearance);

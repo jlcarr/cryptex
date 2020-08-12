@@ -18,7 +18,7 @@ module cryptexSpindle(n, digits, outer_radius, inner_radius, width, thickness, c
         difference(){
             union(){
                 // Body
-                cylinder(h=digits*width, r=inner_radius, center=true);
+                translate([0,0,-clearance/2]) cylinder(h=digits*width-clearance, r=inner_radius, center=true);
                 // Nodes
                 for (i=[0:digits-1], h=(i+1/2-digits/2)*width) 
                     translate([inner_radius,0,h]) 
