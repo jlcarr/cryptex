@@ -12,8 +12,11 @@ Cryptexes were popularized by Dan Brown in his novel The DaVinci Code.
 ### OpenSCAD
 - https://www.openscad.org/
 - https://www.openscad.org/cheatsheet/index.html
+### FreeCAD
+- https://wiki.freecadweb.org/Import_OpenSCAD_code
+- https://wiki.freecadweb.org/Manual:Generating_2D_drawings
+- https://forum.freecadweb.org/viewtopic.php?t=35384
 ### Engineering Design
 - https://en.wikipedia.org/wiki/Engineering_tolerance
 - https://en.wikipedia.org/wiki/Engineering_fit
 - https://en.wikipedia.org/wiki/Geometric_dimensioning_and_tolerancing
-

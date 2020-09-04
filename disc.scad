@@ -7,6 +7,7 @@ use <sharedgeometry.scad>
 
 
 module cryptexDisc(n, val, inner_radius, outer_radius, width, thickness, clearance){
+    face = 2*tan(180/n)*outer_radius;
     difference(){
        difference(){
             difference(){
@@ -21,7 +22,7 @@ module cryptexDisc(n, val, inner_radius, outer_radius, width, thickness, clearan
         // Notch
         rotate([0,0,val*360/n])
             translate([inner_radius,0,0]) 
-                cube([2*(outer_radius-inner_radius-thickness), 4*thickness, width], center=true);
+                cube([2*(outer_radius-inner_radius-thickness), face-thickness, width], center=true);
     };
     // Numbers
     for (i=[0:n-1], a=i*360/n) 
@@ -46,7 +47,7 @@ thickness = 1;
 
 clearance = 0.25;
 
-face = 2*tan(180/n)*outer_radius;
-echo(face);
+//face = 2*tan(180/n)*outer_radius;
+//echo(face);
 
 cryptexDisc(n, val, inner_radius, outer_radius, width, thickness, clearance);
