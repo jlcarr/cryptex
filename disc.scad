@@ -40,12 +40,12 @@ module cryptexDisc(n, val, inner_radius, outer_radius, width, thickness, clearan
 n = 10;
 val = 0;
 
-inner_radius = 7;
-outer_radius = 10;
-width = 5;
-thickness = 1;
+inner_radius = 15;
+outer_radius = 20;
+width = 10;
+thickness = 2;
 
-clearance = 0.25;
+clearance = 0.5;
 
 //face = 2*tan(180/n)*outer_radius;
 //echo(face);

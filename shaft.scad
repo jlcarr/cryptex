@@ -38,12 +38,12 @@ module cryptexShaft(n, digits, outer_radius, inner_radius, width, thickness, cle
 n = 10;
 digits = 4;
 
-inner_radius = 7;
-outer_radius = 10;
-width = 5;
-thickness = 1;
+inner_radius = 15;
+outer_radius = 20;
+width = 10;
+thickness = 2;
 
-clearance = 0.25;
+clearance = 0.5;
 
 face = 2*tan(180/n)*outer_radius;
 echo(face);

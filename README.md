@@ -1,5 +1,7 @@
 # cryptex
-An OpenSCAD script for modelling a cryptex.
+An OpenSCAD script for modelling a cryptex.  
+
+![3D Printed Result](https://i1.lensdump.com/i/09eK4H.png)
 
 ## What Is A Cryptex?
 https://en.wikipedia.org/wiki/Cryptex  

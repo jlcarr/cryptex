@@ -10,14 +10,14 @@ use <shaft.scad>
 
 // Main Model
 n = 10;
-digits_list = [2,7,1,8];
+digits_list = [6,9,6,9];
 
-inner_radius = 7;
-outer_radius = 10;
-width = 5;
-thickness = 1;
+inner_radius = 14;
+outer_radius = 20;
+width = 10;
+thickness = 2;
 
-clearance = 0.25;
+clearance = 0.5;
 
 digits = len(digits_list);
 face = 2*tan(180/n)*outer_radius;
